@@ -1,12 +1,41 @@
 h2 {
-    font-size: 50px;
+    font-size: 40px;
     text-align: center;
-    font-family: arial;
+    font-family: 'Lacquer';
+    margin-top: 20px;
+}
+
+.skor {
+    margin-left: 75%;
+    font-size: 20px;
+    text-align: right;
+    font-family: 'PT Mono';
+}
+
+.nama {
+    margin-left: 50px;
+    font-size: 20px;
+    text-align: left;
+    font-family: 'PT Mono';
+}
+
+body {
+    background-color: #ff9900;
+}
+
+button {
+    margin: auto;
+    display: block;
 }
 
 .container {
     width: 600px;
     margin: auto;
+    cursor: url(../img/palu1.png), auto;
+}
+
+.container:active {
+    cursor: url(../img/palu2.png), auto;
 }
 
 .tanah {

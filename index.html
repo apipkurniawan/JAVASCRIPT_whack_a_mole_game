@@ -5,12 +5,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=PT+Mono|Lacquer&display=swap" rel="stylesheet">
     <title>whack a mole game</title>
 </head>
 
 <body>
     <h2>Whack a Mole game</h2>
-
+    <div>
+        <label class="nama">
+            <b> Nama : Apip</b>
+        </label>
+        <label class="skor">
+            <b> Skor : <span class="papan-skor">0</span> </b>
+        </label>
+    </div>
+    <button type="button" class="mulai" onclick="mulai()">Mulai</button>
     <div class="container">
         <div class="tanah">
             <div class="tikus">
@@ -38,6 +47,7 @@
         </div>
     </div>
 
+    <audio src="audio/Pop.mp3" id="pop"></audio>
     <script src="js/script.js"></script>
 </body>
 
