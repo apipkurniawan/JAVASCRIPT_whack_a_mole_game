@@ -6,10 +6,20 @@ h2 {
 }
 
 .skor {
-    margin-left: 75%;
+    margin-left: 67%;
     font-size: 20px;
     text-align: right;
     font-family: 'PT Mono';
+}
+
+input[type=text] {
+    width: 5%;
+    padding: 10px 17px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .nama {
@@ -23,9 +33,31 @@ body {
     background-color: #ff9900;
 }
 
-button {
-    margin: auto;
-    display: block;
+.myButton {
+    box-shadow: inset 3px 0px 14px -3px #f2fadc;
+    background: linear-gradient(to bottom, #dbe6c4 5%, #9ba892 100%);
+    background-color: #dbe6c4;
+    border-radius: 6px;
+    border: 1px solid #b2b8ad;
+    display: inline-block;
+    cursor: pointer;
+    color: #757d6f;
+    font-family: Arial;
+    font-size: 23px;
+    font-weight: bold;
+    padding: 15px 57px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #ced9bf;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #9ba892 5%, #dbe6c4 100%);
+    background-color: #9ba892;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
 }
 
 .container {

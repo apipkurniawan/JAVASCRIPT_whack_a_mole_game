@@ -1,8 +1,8 @@
 /* vanilla javascript */
 
-/* ambil element tanah */
+/* ambil element */
 const tanah = document.querySelectorAll('.tanah');
-/* ambil element tikus */
+const waktu = document.getElementById('waktu');
 const tikus = document.querySelectorAll('.tikus');
 const papanSkor = document.querySelector('.papan-skor');
 const pop = document.querySelector('#pop');
@@ -41,13 +41,14 @@ function munculkanTikus() {
 }
 /* funct untuk button */
 function mulai() {
+    let wkt = Number(waktu.value) * 60000;
     selesai = false;
     skor = 0;
     papanSkor.textContent = 0;
     munculkanTikus();
     setTimeout(() => {
         selesai = true;
-    }, 10000);
+    }, wkt);
 }
 /* function untuk mukul tikus */
 function pukul() {
@@ -56,7 +57,25 @@ function pukul() {
     pop.play();
     papanSkor.textContent = skor; /* ubah skor di papan skor */
 }
-
+/* untuk auto sembunyi */
 tikus.forEach(t => {
     t.addEventListener('click', pukul);
 });
+
+/* funct untuk validasi number */
+function validate(evt) {
+    var theEvent = evt || window.event;
+    // Handle paste
+    if (theEvent.type === 'paste') {
+        key = event.clipboardData.getData('text/plain');
+    } else {
+        // Handle key press
+        var key = theEvent.keyCode || theEvent.which;
+        key = String.fromCharCode(key);
+    }
+    var regex = /[0-9]|\./;
+    if (!regex.test(key)) {
+        theEvent.returnValue = false;
+        if (theEvent.preventDefault) theEvent.preventDefault();
+    }
+}
