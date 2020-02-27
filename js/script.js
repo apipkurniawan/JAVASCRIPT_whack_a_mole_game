@@ -2,6 +2,7 @@
 
 /* ambil element */
 const tanah = document.querySelectorAll('.tanah');
+const level = document.querySelectorAll('#levels');
 const waktu = document.getElementById('waktu');
 const tikus = document.querySelectorAll('.tikus');
 const papanSkor = document.querySelector('.papan-skor');
@@ -10,7 +11,7 @@ const pop = document.querySelector('#pop');
 let tanahSebelumnya;
 let selesai;
 let skor;
-
+let wRandom;
 
 /* funct untuk mengambil bilangan random tanah */
 function randomTanah(tanah) {
@@ -29,7 +30,7 @@ function randomWaktu(min, max) {
 /* funct untuk menampilkan tikus */
 function munculkanTikus() {
     const tRandom = randomTanah(tanah);
-    const wRandom = randomWaktu(300, 1000);
+    // const wRandom = randomWaktu(300, 1000);
     tRandom.classList.add('muncul');
 
     setTimeout(() => {
@@ -39,8 +40,24 @@ function munculkanTikus() {
         }
     }, wRandom);
 }
+/* funct untuk get lavel */
+function getLevel() {
+    for (let i = 0; i < level.length; i++) {
+        const element = level[i].checked;
+        if (element) {
+            if (level[i].value == '1') { // mudah
+                wRandom = randomWaktu(1000, 5000);
+            } else if (level[i].value == '2') { // sedang
+                wRandom = randomWaktu(700, 3000);
+            } else if (level[i].value == '1') { // sulit
+                wRandom = randomWaktu(300, 1000);
+            }
+        }
+    }
+}
 /* funct untuk button */
 function mulai() {
+    getLevel();
     let wkt = Number(waktu.value) * 60000;
     selesai = false;
     skor = 0;

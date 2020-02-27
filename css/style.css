@@ -6,7 +6,14 @@ h2 {
 }
 
 .skor {
-    margin-left: 67%;
+    margin-left: 27%;
+    font-size: 20px;
+    text-align: right;
+    font-family: 'PT Mono';
+}
+
+.level {
+    margin-left: 17%;
     font-size: 20px;
     text-align: right;
     font-family: 'PT Mono';

@@ -14,8 +14,13 @@
     <div>
         <label class="nama">
             <b> Waktu : </b>
-            <input type="text" id="waktu" maxlength="2" onkeypress="validate(event)">
+            <input type="text" id="waktu" maxlength="2" value="1" onkeypress="validate(event)">
             <b> Menit </b>
+        </label>
+        <label class="level">
+            <input type="radio" id="levels" value="1" checked="checked">Mudah</input>
+            <input type="radio" id="levels" value="2">Sedang</input>
+            <input type="radio" id="levels" value="3">Sulit</input>
         </label>
         <label class="skor">
             <b> Skor : <span class="papan-skor">0</span> </b>
