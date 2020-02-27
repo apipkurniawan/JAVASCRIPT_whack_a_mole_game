@@ -6,6 +6,7 @@ const level = document.querySelectorAll('#levels');
 const waktu = document.getElementById('waktu');
 const tikus = document.querySelectorAll('.tikus');
 const papanSkor = document.querySelector('.papan-skor');
+// const BtnStart = document.querySelector('.myButton');
 const pop = document.querySelector('#pop');
 
 let tanahSebelumnya;
@@ -46,11 +47,11 @@ function getLevel() {
         const element = level[i].checked;
         if (element) {
             if (level[i].value == '1') { // mudah
-                wRandom = randomWaktu(1000, 5000);
+                wRandom = randomWaktu(900, 2000);
             } else if (level[i].value == '2') { // sedang
-                wRandom = randomWaktu(700, 3000);
+                wRandom = randomWaktu(800, 1500);
             } else if (level[i].value == '1') { // sulit
-                wRandom = randomWaktu(300, 1000);
+                wRandom = randomWaktu(500, 1000);
             }
         }
     }
@@ -66,6 +67,10 @@ function mulai() {
     setTimeout(() => {
         selesai = true;
     }, wkt);
+}
+/* function untuk berhenti */
+function berhenti() {
+    // 
 }
 /* function untuk mukul tikus */
 function pukul() {
