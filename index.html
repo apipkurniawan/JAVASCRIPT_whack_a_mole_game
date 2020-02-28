@@ -14,8 +14,7 @@
     <div>
         <label class="nama">
             <b> Waktu : </b>
-            <input type="text" id="waktu" maxlength="2" value="1" onkeypress="validate(event)">
-            <b> Menit </b>
+            <b> <span class="timer">00:00 </span> </b>
         </label>
         <label class="level">
             <input type="radio" id="levels" name="levels" value="1" checked="checked">Mudah</input>
@@ -28,7 +27,6 @@
     </div>
     <div style="text-align: center;">
         <button type="button" class="myButton" onclick="mulai()">START</button>
-        <!-- <button type="button" class="myButton2" onclick="berhenti()">STOP</button> -->
     </div>
     <div class="container">
         <div class="tanah">
@@ -56,6 +54,17 @@
             </div>
         </div>
     </div>
+
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Waktu Selesai!!</p>
+        </div>
+    </div>
+
 
     <audio src="audio/Pop.mp3" id="pop"></audio>
     <script src="js/script.js"></script>

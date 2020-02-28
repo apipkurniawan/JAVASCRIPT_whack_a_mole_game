@@ -1,18 +1,36 @@
 /* vanilla javascript */
 
-/* ambil element */
+/* ambil element berdasarkan class (banyak) */
 const tanah = document.querySelectorAll('.tanah');
-const level = document.querySelectorAll('#levels');
-const waktu = document.getElementById('waktu');
 const tikus = document.querySelectorAll('.tikus');
-const papanSkor = document.querySelector('.papan-skor');
-// const BtnStart = document.querySelector('.myButton');
+/* ambil element berdasarkan id (banyak) */
+const level = document.querySelectorAll('#levels');
+/* ambil element berdasarkan id (satu) */
+let modal = document.getElementById("myModal");
 const pop = document.querySelector('#pop');
+/* ambil element berdasarkan class (satu) */
+const papanSkor = document.querySelector('.papan-skor');
+
+// Get the <span> element that closes the modal
+let span = document.getElementsByClassName("close")[0];
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
 
 let tanahSebelumnya;
 let selesai;
 let skor;
 let wRandom;
+let seconds;
+let timer;
 
 /* funct untuk mengambil bilangan random tanah */
 function randomTanah(tanah) {
@@ -31,7 +49,6 @@ function randomWaktu(min, max) {
 /* funct untuk menampilkan tikus */
 function munculkanTikus() {
     const tRandom = randomTanah(tanah);
-    // const wRandom = randomWaktu(300, 1000);
     tRandom.classList.add('muncul');
 
     setTimeout(() => {
@@ -59,18 +76,15 @@ function getLevel() {
 /* funct untuk button */
 function mulai() {
     getLevel();
-    let wkt = Number(waktu.value) * 60000;
+    seconds = 1000 * 60; // set 1 menit
+    countDown();
     selesai = false;
     skor = 0;
     papanSkor.textContent = 0;
     munculkanTikus();
     setTimeout(() => {
         selesai = true;
-    }, wkt);
-}
-/* function untuk berhenti */
-function berhenti() {
-    // 
+    }, 59998);
 }
 /* function untuk mukul tikus */
 function pukul() {
@@ -84,20 +98,16 @@ tikus.forEach(t => {
     t.addEventListener('click', pukul);
 });
 
-/* funct untuk validasi number */
-function validate(evt) {
-    var theEvent = evt || window.event;
-    // Handle paste
-    if (theEvent.type === 'paste') {
-        key = event.clipboardData.getData('text/plain');
-    } else {
-        // Handle key press
-        var key = theEvent.keyCode || theEvent.which;
-        key = String.fromCharCode(key);
+/* funct untuk countDown timer */
+function countDown() {
+    if (seconds == 60000) {
+        timer = setInterval(countDown, 1000)
     }
-    var regex = /[0-9]|\./;
-    if (!regex.test(key)) {
-        theEvent.returnValue = false;
-        if (theEvent.preventDefault) theEvent.preventDefault();
+    seconds -= 1000;
+    document.querySelector(".timer").innerHTML = '00:' + seconds / 1000 + ' ';
+    if (seconds <= 0) {
+        clearInterval(timer);
+        modal.style.display = "block";
+        document.querySelector(".timer").innerHTML = "00:00";
     }
 }
